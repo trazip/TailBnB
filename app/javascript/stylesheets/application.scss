@@ -7,6 +7,12 @@
   height: calc(100vh - 6rem);
 }
 
+#search_address:focus {
+  outline: none !important;
+  border-color: transparent !important;
+  border-width: 0 !important;
+}
+
 /*! purgecss end ignore */
 
 @import "tailwindcss/utilities";
