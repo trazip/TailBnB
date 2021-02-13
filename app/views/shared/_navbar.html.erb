@@ -17,8 +17,8 @@
           <%= simple_form_for :search, url: appartments_path, method: :get  do |f|%>
             <div class="flex flex-row items-center">
               <%= f.input :address, label: "Adresse", placeholder: 'Où allez-vous ?', required: false, wrapper_html: { class: 'flex flex-col cursor-pointer pr-3' }, input_html: { class: 'pl-0 py-0 border-none ring-transparent text-sm font-light' }, label_html: { class: 'text-xs font-bold' } %>
-              <%= f.input :start_date, label: "Arrivée", placeholder: 'Ajoutez des dates', as: :numeric, required: false, wrapper_html: { class: 'flex flex-col cursor-pointer pr-3' }, input_html: { class: 'pl-0 py-0 border-none ring-transparent text-sm font-light' }, label_html: { class: 'text-xs font-bold' } %>
-              <%= f.input :end_date, label: "Départ", placeholder: 'Ajoutez des dates', as: :numeric, required: false, wrapper_html: { class: 'flex flex-col cursor-pointer pr-3' }, input_html: { class: 'pl-0 py-0 border-none ring-transparent text-sm font-light' }, label_html: { class: 'text-xs font-bold' } %>
+              <%= f.input :start_date, label: "Arrivée", placeholder: 'Ajoutez des dates', required: false, wrapper_html: { class: 'flex flex-col cursor-pointer pr-3' }, input_html: { class: 'pl-0 py-0 border-none ring-transparent text-sm font-light datepicker' }, label_html: { class: 'text-xs font-bold' } %>
+              <%= f.input :end_date, label: "Départ", placeholder: 'Ajoutez des dates', required: false, wrapper_html: { class: 'flex flex-col cursor-pointer pr-3' }, input_html: { class: 'pl-0 py-0 border-none ring-transparent text-sm font-light datepicker' }, label_html: { class: 'text-xs font-bold' } %>
               <%= button_tag type: 'submit', class: "bg-rose-500 hover:bg-rose-600 flex items-center justify-center h-12 w-12 rounded-full" do %>
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
               <% end %>
