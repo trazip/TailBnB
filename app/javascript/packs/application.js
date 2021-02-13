@@ -10,11 +10,13 @@ require("channels")
 
 import "stylesheets/application"
 import { initFlatpickr } from '../plugins/init_flatpickr';
+import { initPlaces } from '../plugins/init_places';
 import { loadDynamicHeadlineText } from '../plugins/typed_headline';
 
 document.addEventListener('turbolinks:load', () => {
   // loadDynamicHeadlineText();
   initFlatpickr();
+  initPlaces();
 });
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
