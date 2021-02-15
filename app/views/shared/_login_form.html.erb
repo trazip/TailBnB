@@ -1,0 +1,70 @@
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div id="login-modal" class="fixed z-50 inset-0 overflow-y-auto" x-show="showModal">
+  <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+    <!--
+      Background overlay, show/hide based on modal state.
+
+      Entering: "ease-out duration-300"
+        From: "opacity-0"
+        To: "opacity-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100"
+        To: "opacity-0"
+    -->
+    <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+      <div class="absolute inset-0 bg-gray-900 opacity-75"></div>
+    </div>
+
+    <!-- This element is to trick the browser into centering the modal contents. -->
+    <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+    <!--
+      Modal panel, show/hide based on modal state.
+
+      Entering: "ease-out duration-300"
+        From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        To: "opacity-100 translate-y-0 sm:scale-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100 translate-y-0 sm:scale-100"
+        To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+    -->
+    <div class="transition duration-500 ease-in-out translate-y-4 inline-block align-bottom bg-white rounded-lg text-center overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+      <div class="bg-white">
+        <div class="sm:flex sm:items-start flex-col items-center">
+          <div class="relative border-b border-gray-300 w-full py-8 flex justify-center">
+            <div id="dismiss-x" class="absolute top-7 left-8 h-8 w-8 rounded-full hover:bg-gray-300 cursor-pointer flex items-center justify-center" @click="showModal = false">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="h-5 w-5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-3xl font-title leading-6 font-bold text-gray-900" id="modal-headline">Login</h3>
+            </div>
+          </div>
+          <div class="px-8 pb-8 text-center sm:mt-0 sm:text-left w-full">
+            <div class="mt-6">
+              <div class="errors"></div>
+              <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), :html=> { class: 'w-full' }, remote: true) do |f| %>
+                <div class="form-inputs">
+                  <%= f.input :email,
+                              required: false,
+                              autofocus: true,
+                              placeholder: 'johndoe@example.com',
+                              input_html: { autocomplete: "email", class: "mt-2 focus:ring-gray-800 focus:border-gray-800 block w-full pr-12 py-4 sm:text-sm border-gray-300 rounded-md mb-2" },
+                              label_html: { class: "text-sm font-bold" } %>
+                  <%= f.input :password,
+                              required: false,
+                              placeholder: '••••••••',
+                              input_html: { autocomplete: "current-password", class: "mt-2 focus:ring-gray-800 focus:border-gray-800 block w-full py-4 pr-12 sm:text-sm border-gray-300 rounded-md"},
+                              label_html: { class: "text-sm font-bold" } %>
+                </div>
+                <div class="form-actions mt-8">
+                  <%= f.button :submit, "Log in", class: "w-full cursor-pointer inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-4 bg-rose-500 text-base font-medium text-white hover:bg-rose-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:text-sm" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
