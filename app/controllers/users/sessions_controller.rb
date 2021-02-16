@@ -10,11 +10,11 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  def create
-    respond_to do |format|
-      format.js { super }
-    end
-  end
+  # def create
+  #   respond_to do |format|
+  #     format.js { super }
+  #   end
+  # end
 
   # DELETE /resource/sign_out
   # def destroy

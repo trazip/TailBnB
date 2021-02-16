@@ -13,15 +13,15 @@ import 'alpinejs'
 
 import { initFlatpickr } from '../plugins/init_flatpickr';
 // import { initPlaces } from '../plugins/init_places';
-import { loadDynamicHeadlineText } from '../plugins/typed_headline';
-// import { hideModal } from '../plugins/init_hidemodal';
-// import { showModal } from '../plugins/init_showmodal';
+// import { loadDynamicHeadlineText } from '../plugins/typed_headline';
+import { hideModal } from '../plugins/init_hidemodal';
+import { showModal } from '../plugins/init_showmodal';
 
 document.addEventListener('turbolinks:load', () => {
   // loadDynamicHeadlineText();
   initFlatpickr();
-  // showModal();
-  // hideModal();
+  showModal();
+  hideModal();
 });
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
