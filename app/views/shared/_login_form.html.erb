@@ -42,8 +42,8 @@
           </div>
           <div class="px-8 pb-8 text-center sm:mt-0 sm:text-left w-full">
             <div class="mt-6">
-              <div class="errors text-sm font-medium text-rose-500"></div>
               <p class="text-sm text-center">Demo account : <br> johndoe@example.com <br> password </p>
+              <div class="errors text-sm font-medium text-rose-500"></div>
               <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), :html=> { class: 'w-full' }, remote: true) do |f| %>
                 <div class="form-inputs">
                   <%= f.input :email,
