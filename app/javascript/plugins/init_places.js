@@ -1,9 +1,10 @@
+import places from 'places.js';
+
 const initPlaces = () => {
-  const placesAutocomplete = places({
-    appId: ENV['ALGOLIA_PLACES_APP_ID'],
-    apiKey: ENV['ALGOLIA_PLACES_API_KEY'],
-    container: document.querySelector('#search_address')
-  });
-}
+  const addressInput = document.getElementById('aloglia_search_address');
+  if (addressInput) {
+    places({ container: addressInput });
+  }
+};
 
 export { initPlaces };

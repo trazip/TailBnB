@@ -12,6 +12,7 @@
     "alpinejs": "^2.8.0",
     "autoprefixer": "^9",
     "flatpickr": "^4.6.9",
+    "places.js": "^1.19.0",
     "postcss": "^7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "turbolinks": "^5.2.0",

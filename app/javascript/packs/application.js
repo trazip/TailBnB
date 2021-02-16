@@ -12,7 +12,7 @@ import "stylesheets/application"
 import 'alpinejs'
 
 import { initFlatpickr } from '../plugins/init_flatpickr';
-// import { initPlaces } from '../plugins/init_places';
+import { initPlaces } from '../plugins/init_places';
 // import { loadDynamicHeadlineText } from '../plugins/typed_headline';
 import { hideModal } from '../plugins/init_hidemodal';
 import { showModal } from '../plugins/init_showmodal';
@@ -20,6 +20,7 @@ import { showModal } from '../plugins/init_showmodal';
 document.addEventListener('turbolinks:load', () => {
   // loadDynamicHeadlineText();
   initFlatpickr();
+  initPlaces();
   showModal();
   hideModal();
 });

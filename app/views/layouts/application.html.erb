@@ -18,7 +18,9 @@
       <% if alert %>
         <div class="z-50 absolute alert alert-warning"><%= alert %></div>
       <% end %>
-      <%= render 'shared/navbar' %>
+      <% unless controller_name == 'appartments' && action_name == 'new' %>
+        <%= render 'shared/navbar' %>
+      <% end %>
       <%= yield %>
   </body>
 </html>
