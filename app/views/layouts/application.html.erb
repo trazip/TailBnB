@@ -13,10 +13,10 @@
   </head>
   <body>
       <% if notice %>
-        <div class="alert alert-success"><%= notice %></div>
+        <div class="z-50 absolute alert alert-success"><%= notice %></div>
       <% end %>
       <% if alert %>
-        <div class="alert alert-warning"><%= alert %></div>
+        <div class="z-50 absolute alert alert-warning"><%= alert %></div>
       <% end %>
       <%= render 'shared/navbar' %>
       <%= yield %>
