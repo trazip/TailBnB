@@ -6,7 +6,16 @@ class AppartmentsController < ApplicationController
     @appartments = Appartments.all
   end
 
-  def show; end
+  def user_appartments
+    if current_user.appartments.empty?
+      render 'new'
+    else
+      @appartments = current_user.appartments
+    end
+  end
+
+  def show
+  end
 
   def new
     @appartment = Appartment.new
