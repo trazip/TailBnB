@@ -1,16 +1,3 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-
-/*! purgecss start ignore */
-
-.content{
-  height: calc(100vh - 6rem);
-}
-
-#algolia-places-listbox-0 {
-  width: 545px !important;
-}
-
 .cal-modal-container {
   background: rgba(0, 0, 0, .4);
   display: flex;
@@ -190,10 +177,3 @@
     }
   }
 }
-
-/*! purgecss end ignore */
-
-@import "tailwindcss/utilities";
-@import "flatpickr/dist/flatpickr";
-// @import "components/calendar";
-

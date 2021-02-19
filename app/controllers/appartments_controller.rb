@@ -3,10 +3,14 @@ class AppartmentsController < ApplicationController
   before_action :set_appartment, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:query].present?
-      raise
-    else
-      @appartments = Appartment.all
+    if params[:search][:address].empty?
+      @appartments = Appartment.near(Geocoder.search(remote_ip).first.city, 250, :order => :distance)
+    end
+
+    @appartments = Appartment.near(params[:address], 250, :order => :distance)
+
+    if params[:search][:start_date].present? && params[:search][:end_date].present?
+      @appartments = @appartments.select { |appartment| appartment.is_available?(params[:search][:start_date], params[:search][:end_date]) }
     end
   end
 
@@ -46,6 +50,13 @@ class AppartmentsController < ApplicationController
   end
 
   def appartment_params
-    params.require(:appartment).permit(:address, :price)
+    params.require(:appartment).permit(:address, :price, :photo)
+  end
+
+  def nearest_appartments
+    if params[:search][:address].empty?
+      @appartments = Appartment.near(Geocoder.search(remote_ip).first.city, 250, order: :distance)
+    end
+    @appartments = Appartment.near(params[:address], 250, :order => :distance)
   end
 end

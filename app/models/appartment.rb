@@ -1,9 +1,14 @@
 class Appartment < ApplicationRecord
   belongs_to :user
+  has_many :bookings, dependent: :destroy
+  has_one_attached :photo
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
-  def available?(from, to)
-    bookings.where('start_booking <= ? AND end_booking >= ?', to, from).none?
+  def is_available?(start_date, end_date)
+    bookings.each do |b|
+      return false if (b.start_date..b.end_date).overlaps?(start_date.to_date..end_date.to_date)
+    end
+    true
   end
 end
