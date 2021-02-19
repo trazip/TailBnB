@@ -3,7 +3,11 @@ class AppartmentsController < ApplicationController
   before_action :set_appartment, only: [:show, :edit, :update, :destroy]
 
   def index
-    @appartments = Appartments.all
+    if params[:query].present?
+      raise
+    else
+      @appartments = Appartment.all
+    end
   end
 
   def user_appartments
