@@ -1,13 +1,37 @@
 <div class="max-w-7xl mx-auto">
   <div class="header">
-    <h1 class="font-bold text-5xl font-title mt-12">Appartment Show</h1>
+    <h1 class="font-bold text-5xl font-title mt-12"><%= @appartment.title %></h1>
     <%= cl_image_tag @appartment.photo.key, class: "w-full h-96 object-cover rounded-lg mt-12"%>
   </div>
-  <div class="body">
-
+  <div id="body" class="flex flex-row pt-12">
+    <div class="w-2/3">
+      <div class="Introduction">
+        <h2 class="font-title text-3xl">Chambre dans boutique-hôtel. Hôte : <%= @appartment.user.first_name %></h2>
+        <p>2 voyageurs · 1 chambre · 1 salle de bain</p>
+      </div>
+      <div class="description">
+        <div class="mt-8 pr-24">
+          <%= @appartment.description %>
+        </div>
+      </div>
+    </div>
+    <div id="booking" class="">
+      <div class="shadow border border-gray-300 rounded">
+        <%= simple_form_for [@appartment, @booking] do |f| %>
+          <%= f.input  :start_date, as: :string, required: false, input_html: {id: "range_start", class: "hidden"}, label_html: { class: "hidden" } %>
+          <%= f.input  :end_date, as: :string, label: false, required: false, input_html: {id: "range_end", class: "hidden" } %>
+            <div id="booking-form-div" data-bookings="<%= @bookings_dates.to_json %>">
+              <div class="">
+                <%= f.button :submit, "Reserve", class: "text-white font-medium font-title py-6 px-4 bg-rose-500 w-full cursor-pointer" %>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div id="map" class="rounded border border-gray-200 shadow w-full">
 
   </div>
-    <p>This appartment is located in <%= @appartment.address %> rent at <%= @appartment.price %> € per night </p>
 </div>
 
 

@@ -1,83 +1,168 @@
-<div class="relative font-body shadow z-10">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="flex justify-between items-center py-6 md:justify-start md:space-x-10">
-      <div class="flex justify-start lg:w-0 lg:flex-1">
-        <%= link_to root_path do %>
-          <span class="sr-only">Workflow</span>
-          <div class="h-12 w-12 sm:h-10">
-            <svg fill="none" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
-              <path fill="#F4405E" d="M15.258 26.865a4.043 4.043 0 01-1.133 2.917A4.006 4.006 0 0111.253 31a3.992 3.992 0 01-2.872-1.218 4.028 4.028 0 01-1.133-2.917c.009-.698.2-1.382.557-1.981.356-.6.863-1.094 1.47-1.433-.024.109.09-.055 0 0l1.86-1.652a8.495 8.495 0 002.304-5.793c0-2.926-1.711-5.901-4.17-7.457.094.055-.036-.094 0 0A3.952 3.952 0 017.8 7.116a3.975 3.975 0 01-.557-1.98 4.042 4.042 0 011.133-2.918A4.006 4.006 0 0111.247 1a3.99 3.99 0 012.872 1.218 4.025 4.025 0 011.133 2.917 8.521 8.521 0 002.347 5.832l.817.8c.326.285.668.551 1.024.798.621.33 1.142.826 1.504 1.431a3.902 3.902 0 01-1.504 5.442c.033-.067-.063.036 0 0a8.968 8.968 0 00-3.024 3.183 9.016 9.016 0 00-1.158 4.244zM19.741 5.123c0 .796.235 1.575.676 2.237a4.01 4.01 0 001.798 1.482 3.99 3.99 0 004.366-.873 4.042 4.042 0 00.869-4.386 4.02 4.02 0 00-1.476-1.806 3.994 3.994 0 00-5.058.501 4.038 4.038 0 00-1.175 2.845zM23.748 22.84c-.792 0-1.567.236-2.226.678a4.021 4.021 0 00-1.476 1.806 4.042 4.042 0 00.869 4.387 3.99 3.99 0 004.366.873A4.01 4.01 0 0027.08 29.1a4.039 4.039 0 00-.5-5.082 4 4 0 00-2.832-1.18zM34 15.994c0-.796-.235-1.574-.675-2.236a4.01 4.01 0 00-1.798-1.483 3.99 3.99 0 00-4.367.873 4.042 4.042 0 00-.869 4.387 4.02 4.02 0 001.476 1.806 3.993 3.993 0 002.226.678 4.003 4.003 0 002.832-1.18A4.04 4.04 0 0034 15.993z"/>
-              <path fill="#F4405E" d="M5.007 11.969c-.793 0-1.567.236-2.226.678a4.021 4.021 0 00-1.476 1.807 4.042 4.042 0 00.869 4.386 4.001 4.001 0 004.366.873 4.011 4.011 0 001.798-1.483 4.038 4.038 0 00-.5-5.08 4.004 4.004 0 00-2.831-1.181z"/>
-            </svg>
-          </div>
-        <% end %>
-      </div>
-      <nav class="hidden md:flex space-x-10">
-        <div class="flex items-center bg-white shadow-md w-full rounded-full py-2 pl-6 pr-2 ">
-          <%= simple_form_for :search, url: appartments_path, method: :get  do |f|%>
-            <div class="flex flex-row items-center">
-              <%= f.input :address, label: "Location", placeholder: 'Where are you going ?', required: false, wrapper_html: { class: 'flex flex-col cursor-pointer pr-3' }, input_html: { class: 'pl-0 py-0 border-none ring-transparent text-sm font-light placeholder-gray-500' }, label_html: { class: 'text-xs font-bold' } %>
-              <%= f.input :start_date, label: "Check in", placeholder: 'Add dates', required: false, wrapper_html: { class: 'flex flex-col cursor-pointer pr-3' }, input_html: { class: 'pl-0 py-0 border-none ring-transparent text-sm font-light datepicker' }, label_html: { class: 'text-xs font-bold' } %>
-              <%= f.input :end_date, label: "Check out", placeholder: 'Add dates', required: false, wrapper_html: { class: 'flex flex-col cursor-pointer pr-3' }, input_html: { class: 'pl-0 py-0 border-none ring-transparent text-sm font-light datepicker' }, label_html: { class: 'text-xs font-bold' } %>
-              <%= button_tag type: 'submit', class: "bg-rose-500 hover:bg-rose-600 flex items-center justify-center h-12 w-12 rounded-full" do %>
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-              <% end %>
+<% if controller_name == 'pages' %>
+  <div class="relative font-body z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex justify-between items-center py-6 md:justify-start md:space-x-10">
+        <div class="flex justify-start lg:w-0 lg:flex-1">
+          <%= link_to root_path do %>
+            <span class="sr-only">Workflow</span>
+            <div class="h-12 w-12 sm:h-10">
+              <svg fill="none" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#FFF" d="M15.258 26.865a4.043 4.043 0 01-1.133 2.917A4.006 4.006 0 0111.253 31a3.992 3.992 0 01-2.872-1.218 4.028 4.028 0 01-1.133-2.917c.009-.698.2-1.382.557-1.981.356-.6.863-1.094 1.47-1.433-.024.109.09-.055 0 0l1.86-1.652a8.495 8.495 0 002.304-5.793c0-2.926-1.711-5.901-4.17-7.457.094.055-.036-.094 0 0A3.952 3.952 0 017.8 7.116a3.975 3.975 0 01-.557-1.98 4.042 4.042 0 011.133-2.918A4.006 4.006 0 0111.247 1a3.99 3.99 0 012.872 1.218 4.025 4.025 0 011.133 2.917 8.521 8.521 0 002.347 5.832l.817.8c.326.285.668.551 1.024.798.621.33 1.142.826 1.504 1.431a3.902 3.902 0 01-1.504 5.442c.033-.067-.063.036 0 0a8.968 8.968 0 00-3.024 3.183 9.016 9.016 0 00-1.158 4.244zM19.741 5.123c0 .796.235 1.575.676 2.237a4.01 4.01 0 001.798 1.482 3.99 3.99 0 004.366-.873 4.042 4.042 0 00.869-4.386 4.02 4.02 0 00-1.476-1.806 3.994 3.994 0 00-5.058.501 4.038 4.038 0 00-1.175 2.845zM23.748 22.84c-.792 0-1.567.236-2.226.678a4.021 4.021 0 00-1.476 1.806 4.042 4.042 0 00.869 4.387 3.99 3.99 0 004.366.873A4.01 4.01 0 0027.08 29.1a4.039 4.039 0 00-.5-5.082 4 4 0 00-2.832-1.18zM34 15.994c0-.796-.235-1.574-.675-2.236a4.01 4.01 0 00-1.798-1.483 3.99 3.99 0 00-4.367.873 4.042 4.042 0 00-.869 4.387 4.02 4.02 0 001.476 1.806 3.993 3.993 0 002.226.678 4.003 4.003 0 002.832-1.18A4.04 4.04 0 0034 15.993z"/>
+                <path fill="#FFF" d="M5.007 11.969c-.793 0-1.567.236-2.226.678a4.021 4.021 0 00-1.476 1.807 4.042 4.042 0 00.869 4.386 4.001 4.001 0 004.366.873 4.011 4.011 0 001.798-1.483 4.038 4.038 0 00-.5-5.08 4.004 4.004 0 00-2.831-1.181z"/>
+              </svg>
             </div>
           <% end %>
         </div>
-      </nav>
-      <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-        <% if user_signed_in? %>
-          <!-- Profile dropdown -->
-            <div class="ml-3 relative" x-data="{ open: false }">
-              <div>
-                <button class="max-w-xs bg-rose-500 rounded-full flex items-center text-sm focus:outline-none" id="user-menu" aria-haspopup="true" @click="open = true">
-                  <span class="sr-only">Open user menu</span>
-                  <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=400&h=400&q=80" alt="">
-                </button>
+        <nav class="hidden md:flex space-x-10">
+          <div class="flex items-center bg-white shadow-md w-full rounded-full py-2 pl-6 pr-2 ">
+            <%= simple_form_for :search, url: appartments_path, method: :get  do |f|%>
+              <div class="flex flex-row items-center">
+                <%= f.input :address, label: "Location", placeholder: 'Where are you going ?', required: false, wrapper_html: { class: 'flex flex-col cursor-pointer pr-3' }, input_html: { class: 'pl-0 py-0 border-none ring-transparent text-sm font-light placeholder-gray-500' }, label_html: { class: 'text-xs font-bold' } %>
+                <%= f.input :start_date, label: "Check in", placeholder: 'Add dates', required: false, wrapper_html: { class: 'flex flex-col cursor-pointer pr-3' }, input_html: { class: 'pl-0 py-0 border-none ring-transparent text-sm font-light datepicker' }, label_html: { class: 'text-xs font-bold' } %>
+                <%= f.input :end_date, label: "Check out", placeholder: 'Add dates', required: false, wrapper_html: { class: 'flex flex-col cursor-pointer pr-3' }, input_html: { class: 'pl-0 py-0 border-none ring-transparent text-sm font-light datepicker' }, label_html: { class: 'text-xs font-bold' } %>
+                <%= button_tag type: 'submit', class: "bg-rose-500 hover:bg-rose-600 flex items-center justify-center h-12 w-12 rounded-full focus:outline-none" do %>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <% end %>
               </div>
-              <!--
-                Profile dropdown panel, show/hide based on dropdown state.
+            <% end %>
+          </div>
+        </nav>
+        <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+          <% if user_signed_in? %>
+            <!-- Profile dropdown -->
+              <div class="ml-3 relative" x-data="{ open: false }">
+                <div>
+                  <button class="max-w-xs bg-rose-500 rounded-full flex items-center text-sm focus:outline-none" id="user-menu" aria-haspopup="true" @click="open = true">
+                    <span class="sr-only">Open user menu</span>
+                    <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=400&h=400&q=80" alt="">
+                  </button>
+                </div>
+                <!--
+                  Profile dropdown panel, show/hide based on dropdown state.
 
-                Entering: "transition ease-out duration-100"
-                  From: "transform opacity-0 scale-95"
-                  To: "transform opacity-100 scale-100"
-                Leaving: "transition ease-in duration-75"
-                  From: "transform opacity-100 scale-100"
-                  To: "transform opacity-0 scale-95"
-              -->
-              <div class="origin-top-right font-body absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100" role="menu" aria-orientation="vertical" aria-labelledby="user-menu" x-show="open" @click.away="open=false" x-transition:enter-start="transition ease-in duration-3000">
-                <div class="py-1">
-                  <a href="#" class="block pl-4 py-3 font-medium text-sm text-gray-900 hover:bg-gray-100" role="menuitem">Messages</a>
-                  <a href="#" class="block pl-4 py-3 font-medium text-sm text-gray-900 hover:bg-gray-100" role="menuitem">Notifications</a>
-                  <a href="#" class="block pl-4 py-3 font-medium text-sm text-gray-900 hover:bg-gray-100" role="menuitem">Trips</a>
-                  <a href="#" class="block pl-4 py-3 font-medium text-sm text-gray-900 hover:bg-gray-100" role="menuitem">Favorites</a>
-                </div>
-                <div class="py-1">
-                  <% if current_user.appartments.empty? %>
-                    <%= link_to 'Host your home',  new_appartment_path, class: "block pl-4 py-3 font-light text-sm text-gray-900 hover:bg-gray-100"  %>
-                  <% else %>
-                    <%= link_to 'My listing',  user_appartments_path, class: "block pl-4 py-3 font-light text-sm text-gray-900 hover:bg-gray-100"  %>
-                  <% end %>
-                </div>
-                <div class="py-1">
-                  <%#= link_to 'My account',  %>
-                  <a href="#" class="block pl-4 py-3 font-light text-sm text-gray-900 hover:bg-gray-100" role="menuitem">My account</a>
-                  <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "block pl-4 py-3 font-light text-sm text-gray-900 hover:bg-gray-100"  %>
+                  Entering: "transition ease-out duration-100"
+                    From: "transform opacity-0 scale-95"
+                    To: "transform opacity-100 scale-100"
+                  Leaving: "transition ease-in duration-75"
+                    From: "transform opacity-100 scale-100"
+                    To: "transform opacity-0 scale-95"
+                -->
+                <div class="origin-top-right font-body absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100" role="menu" aria-orientation="vertical" aria-labelledby="user-menu" x-show="open" @click.away="open=false" x-transition:enter-start="transition ease-in duration-3000">
+                  <div class="py-1">
+                    <a href="#" class="block pl-4 py-3 font-medium text-sm text-gray-900 hover:bg-gray-100" role="menuitem">Messages</a>
+                    <a href="#" class="block pl-4 py-3 font-medium text-sm text-gray-900 hover:bg-gray-100" role="menuitem">Notifications</a>
+                    <%= link_to 'Trips', bookings_path, class: "block pl-4 py-3 font-medium text-sm text-gray-900 hover:bg-gray-100" %>
+                    <a href="#" class="block pl-4 py-3 font-medium text-sm text-gray-900 hover:bg-gray-100" role="menuitem">Favorites</a>
+                  </div>
+                  <div class="py-1">
+                    <% if current_user.appartments.empty? %>
+                      <%= link_to 'Host your home',  new_appartment_path, class: "block pl-4 py-3 font-light text-sm text-gray-900 hover:bg-gray-100"  %>
+                    <% else %>
+                      <%= link_to 'My listing',  user_appartments_path, class: "block pl-4 py-3 font-light text-sm text-gray-900 hover:bg-gray-100"  %>
+                    <% end %>
+                  </div>
+                  <div class="py-1">
+                    <%#= link_to 'My account',  %>
+                    <%= link_to 'My account', edit_user_registration_path, class: 'block pl-4 py-3 font-light text-sm text-gray-900 hover:bg-gray-100'  %>
+                    <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "block pl-4 py-3 font-light text-sm text-gray-900 hover:bg-gray-100"  %>
+                  </div>
                 </div>
               </div>
-            </div>
-          <%#= link_to "Logout", destroy_user_session_path, class: "ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-rose-600 hover:bg-rose-700", method: :delete  %>
-        <% else %>
-          <%= link_to "Connexion", '', id: 'login-modal-trigger', class: "whitespace-nowrap text-base font-light text-white hover:text-gray-200", data: { target: '#login-modal', toggle: 'modal' } %>
-          <a href="#" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-rose-600 hover:bg-rose-700">
-          Inscription
-          </a>
-        <% end %>
+            <%#= link_to "Logout", destroy_user_session_path, class: "ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-rose-600 hover:bg-rose-700", method: :delete  %>
+          <% else %>
+            <%= link_to "Connexion", '', id: 'login-modal-trigger', class: "whitespace-nowrap text-base font-light text-white hover:text-gray-200", data: { target: '#login-modal', toggle: 'modal' } %>
+            <a href="#" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-rose-600 hover:bg-rose-700">
+            Inscription
+            </a>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<% unless user_signed_in? || action_name == 'new' %>
-    <%= render 'shared/login_form' %>
+  <% if !user_signed_in? %>
+      <%= render 'shared/login_form' %>
+  <% end %>
+
+  <% else %>
+  <div class="relative font-body shadow z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex justify-between items-center py-6 md:justify-start md:space-x-10">
+        <div class="flex justify-start lg:w-0 lg:flex-1">
+          <%= link_to root_path do %>
+            <span class="sr-only">Workflow</span>
+            <div class="h-12 w-12 sm:h-10">
+              <svg fill="none" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#F4405E" d="M15.258 26.865a4.043 4.043 0 01-1.133 2.917A4.006 4.006 0 0111.253 31a3.992 3.992 0 01-2.872-1.218 4.028 4.028 0 01-1.133-2.917c.009-.698.2-1.382.557-1.981.356-.6.863-1.094 1.47-1.433-.024.109.09-.055 0 0l1.86-1.652a8.495 8.495 0 002.304-5.793c0-2.926-1.711-5.901-4.17-7.457.094.055-.036-.094 0 0A3.952 3.952 0 017.8 7.116a3.975 3.975 0 01-.557-1.98 4.042 4.042 0 011.133-2.918A4.006 4.006 0 0111.247 1a3.99 3.99 0 012.872 1.218 4.025 4.025 0 011.133 2.917 8.521 8.521 0 002.347 5.832l.817.8c.326.285.668.551 1.024.798.621.33 1.142.826 1.504 1.431a3.902 3.902 0 01-1.504 5.442c.033-.067-.063.036 0 0a8.968 8.968 0 00-3.024 3.183 9.016 9.016 0 00-1.158 4.244zM19.741 5.123c0 .796.235 1.575.676 2.237a4.01 4.01 0 001.798 1.482 3.99 3.99 0 004.366-.873 4.042 4.042 0 00.869-4.386 4.02 4.02 0 00-1.476-1.806 3.994 3.994 0 00-5.058.501 4.038 4.038 0 00-1.175 2.845zM23.748 22.84c-.792 0-1.567.236-2.226.678a4.021 4.021 0 00-1.476 1.806 4.042 4.042 0 00.869 4.387 3.99 3.99 0 004.366.873A4.01 4.01 0 0027.08 29.1a4.039 4.039 0 00-.5-5.082 4 4 0 00-2.832-1.18zM34 15.994c0-.796-.235-1.574-.675-2.236a4.01 4.01 0 00-1.798-1.483 3.99 3.99 0 00-4.367.873 4.042 4.042 0 00-.869 4.387 4.02 4.02 0 001.476 1.806 3.993 3.993 0 002.226.678 4.003 4.003 0 002.832-1.18A4.04 4.04 0 0034 15.993z"/>
+                <path fill="#F4405E" d="M5.007 11.969c-.793 0-1.567.236-2.226.678a4.021 4.021 0 00-1.476 1.807 4.042 4.042 0 00.869 4.386 4.001 4.001 0 004.366.873 4.011 4.011 0 001.798-1.483 4.038 4.038 0 00-.5-5.08 4.004 4.004 0 00-2.831-1.181z"/>
+              </svg>
+            </div>
+          <% end %>
+        </div>
+        <nav class="hidden md:flex space-x-10">
+          <div class="flex items-center bg-white shadow-md w-full rounded-full py-2 pl-6 pr-2 ">
+            <%= simple_form_for :search, url: appartments_path, method: :get  do |f|%>
+              <div class="flex flex-row items-center">
+                <%= f.input :address, label: "Location", placeholder: 'Where are you going ?', required: false, wrapper_html: { class: 'flex flex-col cursor-pointer pr-3' }, input_html: { class: 'pl-0 py-0 border-none ring-transparent text-sm font-light placeholder-gray-500' }, label_html: { class: 'text-xs font-bold' } %>
+                <%= f.input :start_date, label: "Check in", placeholder: 'Add dates', required: false, wrapper_html: { class: 'flex flex-col cursor-pointer pr-3' }, input_html: { class: 'pl-0 py-0 border-none ring-transparent text-sm font-light datepicker' }, label_html: { class: 'text-xs font-bold' } %>
+                <%= f.input :end_date, label: "Check out", placeholder: 'Add dates', required: false, wrapper_html: { class: 'flex flex-col cursor-pointer pr-3' }, input_html: { class: 'pl-0 py-0 border-none ring-transparent text-sm font-light datepicker' }, label_html: { class: 'text-xs font-bold' } %>
+                <%= button_tag type: 'submit', class: "bg-rose-500 hover:bg-rose-600 flex items-center justify-center h-12 w-12 rounded-full focus:outline-none" do %>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </nav>
+        <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+          <% if user_signed_in? %>
+            <!-- Profile dropdown -->
+              <div class="ml-3 relative" x-data="{ open: false }">
+                <div>
+                  <button class="max-w-xs bg-rose-500 rounded-full flex items-center text-sm focus:outline-none" id="user-menu" aria-haspopup="true" @click="open = true">
+                    <span class="sr-only">Open user menu</span>
+                    <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=400&h=400&q=80" alt="">
+                  </button>
+                </div>
+                <!--
+                  Profile dropdown panel, show/hide based on dropdown state.
+
+                  Entering: "transition ease-out duration-100"
+                    From: "transform opacity-0 scale-95"
+                    To: "transform opacity-100 scale-100"
+                  Leaving: "transition ease-in duration-75"
+                    From: "transform opacity-100 scale-100"
+                    To: "transform opacity-0 scale-95"
+                -->
+                <div class="origin-top-right font-body absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100" role="menu" aria-orientation="vertical" aria-labelledby="user-menu" x-show="open" @click.away="open=false" x-transition:enter-start="transition ease-in duration-3000">
+                  <div class="py-1">
+                    <a href="#" class="block pl-4 py-3 font-medium text-sm text-gray-900 hover:bg-gray-100" role="menuitem">Messages</a>
+                    <a href="#" class="block pl-4 py-3 font-medium text-sm text-gray-900 hover:bg-gray-100" role="menuitem">Notifications</a>
+                    <%= link_to 'Trips', bookings_path, class: "block pl-4 py-3 font-medium text-sm text-gray-900 hover:bg-gray-100" %>
+                    <a href="#" class="block pl-4 py-3 font-medium text-sm text-gray-900 hover:bg-gray-100" role="menuitem">Favorites</a>
+                  </div>
+                  <div class="py-1">
+                    <% if current_user.appartments.empty? %>
+                      <%= link_to 'Host your home',  new_appartment_path, class: "block pl-4 py-3 font-light text-sm text-gray-900 hover:bg-gray-100"  %>
+                    <% else %>
+                      <%= link_to 'My listing',  user_appartments_path, class: "block pl-4 py-3 font-light text-sm text-gray-900 hover:bg-gray-100"  %>
+                    <% end %>
+                  </div>
+                  <div class="py-1">
+                    <%#= link_to 'My account',  %>
+                    <%= link_to 'My account', edit_user_registration_path, class: 'block pl-4 py-3 font-light text-sm text-gray-900 hover:bg-gray-100'  %>
+                    <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "block pl-4 py-3 font-light text-sm text-gray-900 hover:bg-gray-100"  %>
+                  </div>
+                </div>
+              </div>
+            <%#= link_to "Logout", destroy_user_session_path, class: "ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-rose-600 hover:bg-rose-700", method: :delete  %>
+          <% else %>
+            <%= link_to "Connexion", '', id: 'login-modal-trigger', class: "whitespace-nowrap text-base font-light text-white hover:text-gray-200", data: { target: '#login-modal', toggle: 'modal' } %>
+            <a href="#" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-rose-600 hover:bg-rose-700">
+            Inscription
+            </a>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
+

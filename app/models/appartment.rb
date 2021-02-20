@@ -5,8 +5,8 @@ class Appartment < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
-  def is_available?(start_date, end_date)
-    bookings.each do |b|
+  def available?(appartment, start_date, end_date)
+    appartment.bookings.each do |b|
       return false if (b.start_date..b.end_date).overlaps?(start_date.to_date..end_date.to_date)
     end
     true

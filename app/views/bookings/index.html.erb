@@ -1,0 +1,22 @@
+<h1 class="text-3xl font-bold font-title p-4">Your future trips:</h1>
+<div class="grid grid-cols-3 gap-4 p-4">
+  <% @bookings.each do |booking| %>
+      <div class="shadow rounded-md overflow-hidden">
+        <div class="card-header">
+          <%= cl_image_tag booking.appartment.photo.key, class: "w-full h-96 object-cover rounded-t-lg"%>
+        </div>
+        <div class="card-body p-4">
+          <h2><%= booking.appartment.title %></h2>
+          <p> <%= booking.appartment.address %></p>
+          <div class="flex flex-row justify-between">
+            <div class="">
+              Start date : <%= booking.start_date %>
+            </div>
+            <div>
+              End date : <%= booking.end_date %>
+            </div>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>

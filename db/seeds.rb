@@ -9,11 +9,21 @@ puts 'Destroying everything'
 User.destroy_all
 Appartment.destroy_all
 
-description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lobortis ac ex sed commodo. Sed est arcu, laoreet sit amet venenatis at, placerat vitae eros. Proin iaculis magna vitae mauris aliquam consequat. Vivamus vel mauris leo. Aliquam sagittis nec nisi a vulputate. Morbi et mi auctor, consectetur augue ac, fermentum enim. Pellentesque in nunc vitae arcu aliquam pulvinar vel a nisl. Aliquam elit dui, blandit at varius in, porttitor ut urna. Donec ac congue arcu. Sed aliquam diam eros, id ultrices leo ullamcorper eu.
-Vivamus sollicitudin elit in justo lacinia, imperdiet consectetur nisi rhoncus. Nulla vehicula id ex eu auctor. Praesent imperdiet dui vel lectus tempor faucibus. Nulla rutrum diam non fermentum vehicula. Proin ut mollis diam. Vivamus placerat, purus quis maximus blandit, magna libero vestibulum velit, eu venenatis urna elit non lorem. Aenean commodo, justo et ullamcorper convallis, dolor purus accumsan lectus, sit amet pulvinar est velit sit amet lorem. Curabitur congue varius nunc, nec faucibus est viverra a. Proin non dignissim tellus.
-Nam mattis ex ac nunc porta, eget placerat est eleifend. Sed et odio est. Maecenas faucibus varius mi, id ultrices orci pretium eu. In ligula justo, vulputate sit amet est posuere, pulvinar viverra ligula. Cras accumsan massa vitae nisl accumsan, sit amet ornare quam facilisis. Aliquam magna leo, gravida eget est efficitur, euismod tristique sapien. Aenean vitae elit laoreet, dignissim neque nec, pellentesque nisi. Vivamus pretium vehicula dui. Maecenas blandit ante id nibh tristique, et ornare odio auctor. Maecenas lacinia elit et orci rhoncus, ac convallis mi tempor. Donec a nisi odio. Quisque ac ante in nisl blandit fermentum a in ex. Aliquam in purus eu massa tempor venenatis tincidunt a leo. Phasellus eget hendrerit orci.
-Aliquam accumsan enim blandit est hendrerit placerat. Sed pellentesque ut nunc nec bibendum. Praesent nec metus gravida, maximus orci quis, gravida lacus. Aenean ex metus, viverra quis tellus posuere, porttitor interdum velit. Fusce quis libero id lacus dapibus commodo. Aliquam sed sem auctor, efficitur dui eu, cursus leo. Donec luctus id purus ut ultrices. Nam nisl tortor, vestibulum at rutrum nec, convallis quis sem. Quisque auctor volutpat orci, nec tincidunt nulla sodales non. In rutrum urna eget mi fringilla, aliquam viverra ipsum blandit. Nunc volutpat, nisl varius ultricies facilisis, erat sem posuere elit, a tempus ex enim a ante. Vestibulum eu erat maximus, lobortis est sed, sagittis risus. Fusce sit amet dapibus ipsum. Praesent sed tempor lectus, eu venenatis est. Maecenas sed ultricies ante.
-Integer sed est sit amet purus placerat tempor. Donec sodales turpis at nulla gravida, sit amet consequat nibh tincidunt. Vestibulum ultrices, nisi vel tempus euismod, urna arcu sodales mauris, in mollis nulla quam ac tellus. Curabitur eu mattis nibh. Pellentesque eget metus vestibulum, aliquet magna ac, eleifend elit. Quisque mi massa, sodales non accumsan vel, aliquet ut lacus. Interdum et malesuada fames ac ante ipsum primis in faucibus. In hac habitasse platea dictumst. Morbi ut accumsan odio. Sed placerat lectus magna, a laoreet metus pharetra lobortis."
+description = "Profitez d'un séjour au coeur du septième arrondissement dans le quartier le plus prestigieux de Paris et promenez vous à pied jusqu'à la Tour Eiffel, jusqu'aux Champs Elysées ou encore jusqu'à Saint-Germain des Près !
+
+Le logement
+L'Hôtel de l'Empereur est un hôtel de charme avec des vues panoramiques imprenables sur le Dôme des Invalides.
+
+A deux pas de la Tour Eiffel, des Invalides et des principaux centres d'intérêts à Paris, c'est au coeur du quartier le plus chic de Paris que vous bénéficiez d'un emplacement exceptionnel entre le Paris touristique et celui des affaires .
+Chambre d'environ 17 m²
+Equipements: douche, WC, tv écran led, WIFI gratuit, air conditionné en été, coffre-fort, sèche-cheveux et station Ipod.
+Pour 1 ou 2 personne(s) uniquement avec un grand lit (180 cm)
+
+Chambre non fumeur.
+
+Si vous avez besoin d'un lit bébé, préférez la Triple.
+
+Le petit-déjeuner est en supplément."
 
 puts 'Creating users'
 
